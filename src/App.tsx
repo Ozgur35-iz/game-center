@@ -6,24 +6,26 @@ import NavBar from "./maincomponents/NavBar";
 
 function App() {
   return (
-    <Grid
-      templateAreas={{
-        base: ` "nav" "main" `,
-        lg: ` "nav nav" "aside main" `,
-      }}
-    >
-      <GridItem area="nav">
-        <NavBar></NavBar>
-      </GridItem>
-      <Show above="lg">
-        <GridItem area="aside" bg="gold">
-          Aside
+    <>
+      <Grid
+        templateAreas={{
+          base: ` "nav" "main" `,
+          lg: ` "nav nav" "aside main" `,
+        }}
+      >
+        <GridItem area="nav">
+          <NavBar></NavBar>
         </GridItem>
-      </Show>
-      <GridItem area="main" bg="dodgerblue">
-        Main
-      </GridItem>
-    </Grid>
+        <Show above="lg">
+          <GridItem area="aside" bg="gold">
+            Aside
+          </GridItem>
+        </Show>
+        <GridItem area="main" bg="dodgerblue">
+          Main
+        </GridItem>
+      </Grid>
+    </>
   );
 }
 
