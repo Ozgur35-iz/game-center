@@ -5,7 +5,19 @@ const ColorModeSwitch = () => {
 
   return (
     <HStack>
-      <Switch isChecked={colorMode === "dark"} onChange={toggleColorMode} />
+      <Switch
+        isChecked={colorMode === "dark"}
+        onChange={toggleColorMode}
+        sx={{
+          "& .chakra-switch__thumb": {
+            transition: "transform 0.35s ease !important",
+          },
+          "& .chakra-switch__track": {
+            transition:
+              "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important",
+          },
+        }}
+      />
       <Text>Dark Mode</Text>
     </HStack>
   );
