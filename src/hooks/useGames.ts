@@ -42,6 +42,7 @@ const useGames = (
         params: {
           genres: gameQuery.genre?.id,
           parent_platforms: gameQuery.platform?.id,
+          ordering: gameQuery.sortOrder,
         },
         ...requestConfig,
       })
@@ -56,7 +57,12 @@ const useGames = (
       });
 
     return () => controller.abort();
-  }, [gameQuery.genre?.id, gameQuery.platform?.id, ...deps]);
+  }, [
+    gameQuery.genre?.id,
+    gameQuery.platform?.id,
+    gameQuery.sortOrder,
+    ...deps,
+  ]);
 
   return { games, error, isLoading };
 };
