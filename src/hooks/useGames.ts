@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { AxiosRequestConfig } from "axios";
 import { Genre } from "./useGenres";
+import { GameQuery } from "../App";
 
 export interface Platform {
   id: number;
@@ -23,8 +24,7 @@ interface FetchGamesResponse {
 }
 
 const useGames = (
-  selectedGenre: Genre | null,
-  selectedPlatform: Platform | null,
+  gameQuery: GameQuery,
   requestConfig?: AxiosRequestConfig,
   deps: any[] = [],
 ) => {
@@ -40,8 +40,8 @@ const useGames = (
       .get<FetchGamesResponse>("/games", {
         signal: controller.signal,
         params: {
-          genres: selectedGenre?.id,
-          parent_platforms: selectedPlatform?.id,
+          genres: gameQuery.genre?.id,
+          parent_platforms: gameQuery.platform?.id,
         },
         ...requestConfig,
       })
@@ -56,7 +56,7 @@ const useGames = (
       });
 
     return () => controller.abort();
-  }, [selectedGenre?.id, selectedPlatform?.id, ...deps]);
+  }, [gameQuery.genre?.id, gameQuery.platform?.id, ...deps]);
 
   return { games, error, isLoading };
 };
