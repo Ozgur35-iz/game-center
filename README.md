@@ -27,5 +27,5 @@ Axios for API requests
 
 CSS / Chakra UI
 
-Vite / Create React App
+Vite
 
