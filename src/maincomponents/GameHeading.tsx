@@ -6,7 +6,7 @@ interface Props {
 }
 
 const GameHeading = ({ gameQuery }: Props) => {
-  const heading = `${gameQuery.searchText || ""}`;
+  const heading = `${gameQuery.searchText || "Games"}`;
 
   return (
     <Heading paddingLeft={"35px"} as="h1">
