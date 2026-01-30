@@ -11,17 +11,23 @@ import {
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
+import { GameDetail } from "../hooks/useDetails";
 
 interface Props {
   game: Game;
+  onSelectGame: (game: Game) => void;
 }
 
-const GameCard = ({ game }: Props) => {
+const GameCard = ({ game, onSelectGame }: Props) => {
   return (
     <Card
       borderRadius={20}
       overflow={"hidden"}
       boxShadow="0 4px 12px rgba(0, 0, 0, 0.18)"
+      cursor={"pointer"}
+      onClick={() => {
+        onSelectGame(game);
+      }}
     >
       <Image
         src={getCroppedImageUrl(game.background_image)}
@@ -30,7 +36,11 @@ const GameCard = ({ game }: Props) => {
       />
       <CardBody>
         <Heading fontSize={27}>{game.name}</Heading>
-        <HStack justifyContent={"space-between"} overflow={"visible"}>
+        <HStack
+          height={"90px"}
+          justifyContent={"space-between"}
+          overflow={"visible"}
+        >
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
