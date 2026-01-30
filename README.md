@@ -17,7 +17,7 @@ Responsive UI design
 
 Clean and readable code structure
 
-*TECHNOLOGIES USED
+* TECHNOLOGIES USED
 
 React 18
 
