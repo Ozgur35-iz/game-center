@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { AxiosRequestConfig } from "axios";
-import { Genre } from "./useGenres";
 import { GameQuery } from "../App";
 
 export interface Platform {
@@ -43,6 +42,7 @@ const useGames = (
           genres: gameQuery.genre?.id,
           parent_platforms: gameQuery.platform?.id,
           ordering: gameQuery.sortOrder,
+          search: gameQuery.searchText,
         },
         ...requestConfig,
       })
@@ -61,6 +61,7 @@ const useGames = (
     gameQuery.genre?.id,
     gameQuery.platform?.id,
     gameQuery.sortOrder,
+    gameQuery.searchText,
     ...deps,
   ]);
 
