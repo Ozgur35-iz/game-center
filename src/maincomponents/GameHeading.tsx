@@ -9,7 +9,7 @@ const GameHeading = ({ gameQuery }: Props) => {
   const heading = `${gameQuery.searchText || "Games"}`;
 
   return (
-    <Heading paddingLeft={"35px"} as="h1">
+    <Heading height={"90px"} paddingLeft={"35px"} as="h1">
       {heading}
     </Heading>
   );
