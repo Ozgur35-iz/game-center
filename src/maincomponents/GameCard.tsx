@@ -42,6 +42,7 @@ const GameCard = ({ game, onSelectGame }: Props) => {
           overflow={"visible"}
         >
           <PlatformIconList
+            maxIcons={4}
             platforms={game.parent_platforms.map((p) => p.platform)}
           />
           <CriticScore score={game.metacritic}></CriticScore>

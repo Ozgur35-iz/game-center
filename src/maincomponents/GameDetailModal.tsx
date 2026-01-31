@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import useGameDetails, { GameDetail } from "../hooks/useDetails";
 import { Game } from "../hooks/useGames";
+import PlatformIconList from "./PlatformIconList";
 
 interface Props {
   game: Game | null;
@@ -21,7 +22,7 @@ interface Props {
 }
 
 const GameDetailModal = ({ game, onClose, detail }: Props) => {
-  const { detail: details, isLoading, error } = useGameDetails(game?.id);
+  const { detail: details } = useGameDetails(game?.id);
 
   const year = details?.released ? details?.released.split("-")[0] : "TBA";
 
@@ -48,7 +49,12 @@ const GameDetailModal = ({ game, onClose, detail }: Props) => {
           />
         </Box>
         <ModalBody overflowY="auto" maxH="300px" pb={6}>
-          <HStack paddingY={"10px"}>
+          <Box paddingTop={"15px"}>
+            <PlatformIconList
+              platforms={game?.parent_platforms.map((p) => p.platform) || []}
+            />
+          </Box>
+          <HStack paddingY={"15px"}>
             <Text>{year}</Text>
             {details?.esrb_rating ? (
               <Badge marginTop={"2px"} marginLeft={"7px"} colorScheme="green">
