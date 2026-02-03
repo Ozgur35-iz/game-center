@@ -11,7 +11,19 @@ interface Props {
 const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack height={"90px"} padding="15px">
-      <Image src={logo} boxSize="60px" />
+      <Image
+        src={logo}
+        boxSize="60px"
+        onClick={() => {
+          setTimeout(() => {
+            window.location.reload();
+          }, 80);
+        }}
+        cursor="pointer"
+        transition="transform 0.12s ease"
+        _active={{ transform: "scale(0.9)" }}
+        _hover={{ transform: "scale(1.03)" }}
+      />
       <SearchInput onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>

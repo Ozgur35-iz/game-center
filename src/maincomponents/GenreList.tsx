@@ -24,12 +24,12 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   if (isLoading) return <Spinner />;
   return (
     <Box>
-      <Heading fontSize={"27px"} marginBottom={"5px"}>
+      <Heading fontSize={"27px"} marginBottom={"7px"}>
         Genres
       </Heading>
       <List>
         {genres.map((genre) => (
-          <ListItem key={genre.id}>
+          <ListItem key={genre.id} paddingY={"7px"}>
             <Button
               whiteSpace={"normal"}
               fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}

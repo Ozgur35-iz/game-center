@@ -28,6 +28,9 @@ const GameCard = ({ game, onSelectGame }: Props) => {
       onClick={() => {
         onSelectGame(game);
       }}
+      transition="transform 0.12s ease"
+      _active={{ transform: "scale(0.9)" }}
+      _hover={{ transform: "scale(1.03)" }}
     >
       <Image
         src={getCroppedImageUrl(game.background_image)}

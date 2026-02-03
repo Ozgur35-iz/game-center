@@ -1,6 +1,6 @@
 import NoImage from "../assets/no-image-symbol-shadow-missing-available-icon-vector-43947478.avif";
 
-const getCroppedImageUrl = (url: string) => {
+const getCroppedImageUrl = (url: string | null | undefined) => {
   if (!url) return NoImage;
   const target = "media/";
   const index = url.indexOf(target) + target.length;

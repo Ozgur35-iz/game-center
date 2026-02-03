@@ -31,7 +31,13 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem area="nav">
+        <GridItem
+          area="nav"
+          position="sticky"
+          top="0"
+          zIndex="sticky"
+          bg="gray.900"
+        >
           <NavBar
             onSearch={(searchText) =>
               setGameQuery({ ...gameQuery, searchText })
@@ -39,7 +45,20 @@ function App() {
           ></NavBar>
         </GridItem>
         <Show above="lg">
-          <GridItem area="aside">
+          <GridItem
+            area="aside"
+            position="fixed"
+            h="calc(100vh - 85px)"
+            overflowY="auto"
+            top="85px"
+            sx={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          >
             <GenreList
               selectedGenre={gameQuery.genre}
               onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
