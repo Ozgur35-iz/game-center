@@ -21,7 +21,7 @@ const NavBar = ({ onSearch }: Props) => {
         src={logo}
         boxSize="60px"
         onClick={() => {
-          window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+          window.scrollTo({ top: 0, left: 0 });
           setTimeout(() => {
             window.location.reload();
           }, 80);
