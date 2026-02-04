@@ -31,13 +31,7 @@ function App() {
           lg: "200px 1fr",
         }}
       >
-        <GridItem
-          area="nav"
-          position="sticky"
-          top="0"
-          zIndex="sticky"
-          bg="gray.900"
-        >
+        <GridItem area="nav" position="sticky" top="0" zIndex="sticky">
           <NavBar
             onSearch={(searchText) =>
               setGameQuery({ ...gameQuery, searchText })

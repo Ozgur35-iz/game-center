@@ -1,4 +1,4 @@
-import { HStack, Image } from "@chakra-ui/react";
+import { HStack, Image, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import logo from "../assets/Gemini_Generated_Image_me33dfme33dfme33.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
@@ -9,12 +9,19 @@ interface Props {
 }
 
 const NavBar = ({ onSearch }: Props) => {
+  const bg = useColorModeValue("white", "gray.900");
   return (
-    <HStack height={"90px"} padding="15px">
+    <HStack
+      height={"90px"}
+      padding="15px"
+      bg={bg}
+      boxShadow="0 4px 12px rgba(0, 0, 0, 0.05)"
+    >
       <Image
         src={logo}
         boxSize="60px"
         onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "instant" });
           setTimeout(() => {
             window.location.reload();
           }, 80);

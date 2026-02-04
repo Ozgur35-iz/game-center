@@ -30,6 +30,7 @@ const useGames = (
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -43,11 +44,15 @@ const useGames = (
           parent_platforms: gameQuery.platform?.id,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
+          page,
+          page_size: 20,
         },
         ...requestConfig,
       })
       .then((res) => {
-        setGames(res.data.results);
+        setGames((prev) =>
+          page === 1 ? res.data.results : [...prev, ...res.data.results],
+        );
         setLoading(false);
       })
       .catch((err) => {
@@ -58,6 +63,7 @@ const useGames = (
 
     return () => controller.abort();
   }, [
+    page,
     gameQuery.genre?.id,
     gameQuery.platform?.id,
     gameQuery.sortOrder,
@@ -65,7 +71,17 @@ const useGames = (
     ...deps,
   ]);
 
-  return { games, error, isLoading };
+  useEffect(() => {
+    setGames([]);
+    setPage(1);
+  }, [
+    gameQuery.genre?.id,
+    gameQuery.platform?.id,
+    gameQuery.sortOrder,
+    gameQuery.searchText,
+  ]);
+
+  return { games, error, isLoading, setPage };
 };
 
 export default useGames;
