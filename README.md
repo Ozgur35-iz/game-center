@@ -1,31 +1,29 @@
-This project is a React-based application developed as part of a guided learning process.
-The main goal of the project is to strengthen my understanding of React fundamentals, component-based architecture, hooks, and API integration by building a real-world application.
+#  Game Center
 
-While the project was developed by following an educational video series, I actively implemented, modified, and understood each part of the codebase.
+A modern React application built to demonstrate a strong understanding of React fundamentals, component-based architecture, hooks, and API integration through a real-world project.
 
-* FEATURES
+The project was initially inspired by an educational video series, but it was extended and enhanced with additional features and architectural improvements.
 
-Component-based architecture
+---
 
-Dynamic data fetching from an external API
+##  FEATURES
 
-State management using React Hooks
+- Component-based architecture
+- Dynamic data fetching from an external API
+- State management using React Hooks
+- Reusable and scalable components
+- Responsive UI design
+- Clean and readable code structure
+- Game details displayed dynamically within the same view
+- "Load More" functionality for incremental data rendering
+- UI/UX improvements and custom styling enhancements
 
-Reusable and scalable components
+---
 
-Responsive UI design
+##  TECHNOLOGIES USED
 
-Clean and readable code structure
-
-* TECHNOLOGIES USED
-
-React 18
-
-TypeScript
-
-Axios for API requests
-
-CSS / Chakra UI
-
-Vite
-
+- React 18
+- TypeScript
+- Axios (API requests)
+- Chakra UI
+- Vite
